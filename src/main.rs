@@ -1,7 +1,10 @@
 use std::io::{BufReader};
 use std::fs::File;
+extern crate anyhow;
 use anyhow::{Result};
+extern crate log;
 use log::{info};
+extern crate clap;
 use clap::Parser;
 
 #[derive(Parser)]
@@ -20,7 +23,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>>{
 
     let file = File::open(&args.path).expect("Could not read file");
     let reader = BufReader::new(file);
-    grrs::find_matches(reader, &args.pattern)?;
+    max_grrs::find_matches(reader, &args.pattern)?;
 
     Ok(())
 }

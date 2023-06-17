@@ -5,7 +5,7 @@ use assert_fs::prelude::*;
 
 #[test]
 fn file_doesnt_exist() -> Result<(), Box<dyn std::error::Error>> {
-    let mut cmd = Command::cargo_bin("grrs")?;
+    let mut cmd = Command::cargo_bin("max-grrs")?;
     cmd.arg("foobar").arg("test/file/doesnt/exist");
     cmd.assert().failure().stderr(predicate::str::contains("Could not read file"));
 
