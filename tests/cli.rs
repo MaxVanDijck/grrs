@@ -1,6 +1,9 @@
+extern crate assert_cmd;
 use assert_cmd::prelude::*;
+extern crate predicates;
 use predicates::prelude::*;
 use std::process::Command;
+extern crate assert_fs;
 use assert_fs::prelude::*;
 
 #[test]
