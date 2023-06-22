@@ -11,10 +11,10 @@ use anyhow::{Context, Result};
 
 
 pub fn find_matches(reader: BufReader<File>, pattern: &str) -> Result<(), Box<dyn std::error::Error>>{
-    for line in reader.lines() {
+    for (i, line) in reader.lines().enumerate() {
         let content = line.with_context(|| format!("Could not read file"))?;
         if content.contains(&pattern) {
-            println!("{}", content);
+            println!("{} {}",i , content);
         }
     }
     Ok(())
